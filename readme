@@ -1,2 +1,23 @@
 Hello this is the first file
 ok
+
+To run using powershell
+& java -jar .\target\preval-spring-boot-1.0.0-SNAPSHOT.jar
+
+using cmd
+java -jar target/preval-spring-boot-1.0.0-SNAPSHOT.jar
+
+to call api using powerShell
+$body = @{
+    correlation_identifier = "112211221122"
+    context = "BENR"
+    uetr = "97ed4827-7b6f-4491-a06f-b548d5a7512d"
+    creditor_account = "7892368367"
+    creditor_name = "DEF Electronics"
+    creditor_agent = @{ bicfi = "AAAAUS2L" }
+} | ConvertTo-Json
+
+Invoke-WebRequest -Uri http://localhost:8080/preval/verifyBeneficiaryAccount -Method POST -Headers @{"Content-Type"="application/json"} -Body $body
+
+to call api using cmd (single line version)
+curl -X POST http://localhost:8080/preval/verifyBeneficiaryAccount -H "Content-Type: application/json" -d "{\"correlation_identifier\": \"112211221122\", \"context\": \"BENR\", \"uetr\": \"97ed4827-7b6f-4491-a06f-b548d5a7512d\", \"creditor_account\": \"7892368367\", \"creditor_name\": \"DEF Electronics\", \"creditor_agent\": { \"bicfi\": \"AAAAUS2L\" }}"
