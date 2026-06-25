@@ -5,6 +5,10 @@ set CONSUMER_KEY=VqBBQpjA8DtAH2w92EWFjZvcBHDiGW0U
 set CONSUMER_SECRET=qq0ZrbpMqdvuLa3Q
 =====================================
 
+using Java 21
+
+============
+
 To run using powershell
 & java -jar .\target\preval-spring-boot-1.0.0-SNAPSHOT.jar
 
